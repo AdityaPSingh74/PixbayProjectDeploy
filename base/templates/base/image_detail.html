@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ image.tags }}</title>
+    <style>
+        .share-buttons {
+            margin-top: 20px;
+        }
+        .share-buttons a {
+            margin-right: 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ image.tags }}</h1>
+    
+    <div class="image-detail">
+        <img src="{{ image.largeImageURL }}" alt="{{ image.tags }}" style="max-width: 100%; height: auto;">
+        <p>Author: {{ image.user }}</p>
+        <p>Views: {{ image.views }}</p>
+        <p>Downloads: {{ image.downloads }}</p>
+        <p>Likes: {{ image.likes }}</p>
+
+        <!-- Download button -->
+        <a href="{% url 'download_image' image.id %}">
+            <button>Download Image</button>
+        </a>
+
+        <!-- Share buttons -->
+        <div class="share-buttons">
+            <a href="https://twitter.com/intent/tweet?url={{ image.largeImageURL }}&text=Check out this image!" target="_blank">
+                <button>Share on Twitter</button>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ image.largeImageURL }}" target="_blank">
+                <button>Share on Facebook</button>
+            </a>
+            <a href="mailto:?subject=Check out this image&body={{ image.largeImageURL }}" target="_blank">
+                <button>Share via Email</button>
+            </a>
+        </div>
+    </div>
+    
+    <a href="{% url 'image_gallery' %}">Back to Gallery</a>
+</body>
+</html>
