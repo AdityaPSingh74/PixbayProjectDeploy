@@ -14,7 +14,8 @@ from pathlib import Path
 import os
 
 PORT = os.getenv('PORT', '8000')
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '.onrender.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'pixbayprojectdeploy.onrender.com', '.onrender.com']
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
